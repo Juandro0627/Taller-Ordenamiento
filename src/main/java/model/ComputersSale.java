@@ -13,7 +13,16 @@ public class ComputersSale {
     }
 
     public void  sortByBrand(){
+        for(int i=0; i<computers.length;i++){
+            Computer key = computers[i];
+            int j = - 1;
 
+            while(j >= 0 && computers[j].compareTo(key) >0){
+                computers[j + 1]= computers[j];
+                j--;
+            }
+            computers[j + 1] = key;
+        }
     }
 
     public void sortByProcessing(){
