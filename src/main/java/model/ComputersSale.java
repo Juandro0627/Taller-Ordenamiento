@@ -1,4 +1,6 @@
 package model;
+import java.util.Arrays;
+import model.comparator.BrandAndOSComparator;
 
 public class ComputersSale {
 
@@ -21,6 +23,7 @@ public class ComputersSale {
     }
 
     public void sortByBrandAndOs(){
+        Arrays.sort(computers, new BrandAndOSComparator());
 
     }
 
