@@ -1,6 +1,7 @@
 package model;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.Random;
 
 
 public class ComputersSale {
@@ -83,10 +84,23 @@ public class ComputersSale {
 
         });
     }
+
      public Computer[] generateRandomComputers(int c){
+         Random random = new Random();
+         String[] brands = {"Dell", "HP", "Lenovo", "Apple", "Asus"};
+         char[] os = {'W','L','M'}; // iniciales de ---> Windows, Linux, Mac
+         Computer[] result = new Computer[c];
 
-         return new Computer[0];
+         for(int i = 0; i < c; i++){
+
+             String brand = brands[random.nextInt(brands.length)];
+             int ram = (random.nextInt(4) + 1) * 8; // genera 8, 16, 24 o 32 GB
+             int processors = random.nextInt(4) + 1; // entre 1 y 4 procesadores
+             double speed = 1.5 + (3.5 - 1.5) * random.nextDouble();// velocidad entre 1.5 y 3.5
+             char operatingSystem = os[random.nextInt(os.length)];
+
+             result[i] = new Computer(brand, ram, processors, speed, operatingSystem);
+         }
+         return result;
      }
-
-
 }
